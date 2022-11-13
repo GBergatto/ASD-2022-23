@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "array": "c",
+        "string": "c",
+        "string_view": "c",
+        "stdio.h": "c",
+        "random": "c",
+        "thread": "c"
+    },
+    "better-comments.highlightPlainText": true
+}
