@@ -2,12 +2,14 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: gcc build active file",
+            "label": "C/C++: gcc build all files inside dir",
             "command": "/usr/bin/gcc",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                // "${file}",
+                "*.c",
+                "*.h",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
