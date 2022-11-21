@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "pg.h": "c"
+        "pg.h": "c",
+        "array": "c",
+        "random": "c",
+        "chrono": "c",
+        "stdlib.h": "c",
+        "stdio.h": "c"
     }
 }
