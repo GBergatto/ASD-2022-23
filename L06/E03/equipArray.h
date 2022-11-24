@@ -1,31 +1,52 @@
 #ifndef EQUIPARRAY_H_DEFINED
 #define EQUIPARRAY_H_DEFINED
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
-#define EQUIP_SLOT 8
+#define EQUIP_SLOT 2
 
 #include "invArray.h"
 
-/* ADT di prima classe collezione di oggetti di equipaggiamento */
-typedef struct equipArray_s *equipArray_t; 
+typedef struct {
+    int inUse;
+    inv **array;  // puntatori agli oggetti nell'inventario
+} * equipArray;
 
-/* creatore e disruttore */
-equipArray_t equipArray_init();
-void equipArray_free(equipArray_t equipArray);
+equipArray equipArray_init();
 
-/* quanti equipaggiamenti sono in uso */
-int equipArray_inUse(equipArray_t equipArray);
+void equipArray_free(equipArray eqArray);
 
-/* scrittura su file */
-void equipArray_print(FILE *fp, equipArray_t equipArray, invArray_t invArray);
-/* modifica equipaggiamento scegliendo un oggetto da inventario */
-void equipArray_update(equipArray_t equipArray, invArray_t invArray);
-/* torna indice (nel vettore inventario) dell'oggetto in posizione index (0..EQUIP_SLOT-1) di equipArray */
-int equipArray_getEquipByIndex(equipArray_t equipArray, int index);
+/// @brief Numero di oggetti equipaggiati
+/// @param eqArray
+/// @return
+int equipArray_inUse(equipArray eqArray);
+
+/// @brief Stampa equipaggiamento su file
+/// @param fp
+/// @param eqArray
+/// @param invArray
+void equipArray_print(FILE *fp, equipArray eqArray, invArray invArray);
 
 /* Si possono aggiungere altre funzioni se ritenute necessarie */
+
+/// @brief Trova un oggetto equipaggiato dal nome
+/// @param eqArray
+/// @param name nome dell'oggetto
+/// @return Indice nell'inventario dell'oggetto
+int equipArray_searchByName(equipArray eqArray, char *name);
+
+/// @brief Aggiungi un oggetto all'equipaggiamento
+/// @param equipArray
+/// @param object puntatore all'oggetto da aggiungere
+/// @return 0 per successo, -1 per limite di oggetti superato
+int equipArray_addObject(equipArray equipArray, inv *object);
+
+/// @brief Rimuovi oggetto equipaggiato
+/// @param equipArray
+/// @param index
+/// @return puntatore all'oggetto rimosso
+inv *equipArray_removeObject(equipArray eq, int index);
 
 #endif

@@ -5,6 +5,11 @@
         "random": "c",
         "chrono": "c",
         "stdlib.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "equiparray.h": "c",
+        "string.h": "c",
+        "inv.h": "c",
+        "invarray.h": "c",
+        "variant": "c"
     }
 }
