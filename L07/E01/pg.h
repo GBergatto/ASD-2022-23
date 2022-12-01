@@ -1,31 +1,40 @@
 #ifndef PG_H_DEFINED
 #define PG_H_DEFINED
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
 #include "equipArray.h"
+#include "inv.h"
 
-/* quasi ADT personaggio; si noti che si tratta di un composto con riferimento 
-a un equipArray di proprieta' */
-typedef struct pg_s {
-  char cod[LEN];
-  char nome[LEN];
-  char classe[LEN];
-  stat_t b_stat, eq_stat;
-  equipArray_t equip;
-} pg_t;
+#define MIN_STAT 1
 
-/* lettura e scrittura su file */
-int pg_read(FILE *fp, pg_t *pgp);
-/* non essendo struct dinamica, pulisce chiamando il distruttire di equipArray */
-void pg_clean(pg_t *pgp);
+/// @brief Quasi ADT personaggio con riferimento a equipArray di proprietà
+typedef struct pg_s pg;
 
-void pg_print(FILE *fp, pg_t *pgp, invArray_t invArray);
-/* modifica personaggio aggiungendo/togliendo un equipaggiamento selezionato da inventario:
-di fatto e' sufficiente chiamare l'opportuna funzione dal modulo equipArray */
-void pg_updateEquip(pg_t *pgp, invArray_t invArray);
+/// @brief Leggi personaggio da file
+/// @param fp
+/// @param pgp
+/// @return 1 se la lettura è andata a buon fine, altrimenti 0
+int pg_read(FILE *fp, pg *pgp);
+
+/// @brief Dealloca personaggio con il suo inventario
+/// @param pgpil
+void pg_clean(pg *pgp);
+
+/// @brief Stampa personaggio
+/// @param fp
+/// @param pgp
+/// @param invArray
+void pg_print(FILE *fp, pg *pgp, invArray invArray);
+
+/// @brief Aggiorna l'equipaggiamento
+/// @param pgp
+/// @param invArray
+/// @param index indice nell'inventario dell'oggetto selezionato
+/// @return -1 per oggetto rimosso, +1 per oggetto equipaggiato, 0 per limite equipaggiamento raggiunto
+int pg_updateEquip(pg *pgp, invArray inventario, int index);
 
 /* Si possono aggiungere altre funzioni se ritenute necessarie */
 

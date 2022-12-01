@@ -1,31 +1,45 @@
 #ifndef EQUIPARRAY_H_DEFINED
 #define EQUIPARRAY_H_DEFINED
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
-#define EQUIP_SLOT 8
+#define EQUIP_SLOT 2
 
 #include "invArray.h"
 
-/* ADT di prima classe collezione di oggetti di equipaggiamento */
-typedef struct equipArray_s *equipArray_t; 
+// rappresento ogni oggetto equipaggiato con il suo indice all'interno dell'inventario
 
-/* creatore e disruttore */
-equipArray_t equipArray_init();
-void equipArray_free(equipArray_t equipArray);
+typedef struct eqArr_s *equipArray;
+// ADT di 1 classe: il client non deve vedere i dettagli della struct
 
-/* quanti equipaggiamenti sono in uso */
-int equipArray_inUse(equipArray_t equipArray);
+equipArray equipArray_init();
 
-/* scrittura su file */
-void equipArray_print(FILE *fp, equipArray_t equipArray, invArray_t invArray);
-/* modifica equipaggiamento scegliendo un oggetto da inventario */
-void equipArray_update(equipArray_t equipArray, invArray_t invArray);
-/* torna indice (nel vettore inventario) dell'oggetto in posizione index (0..EQUIP_SLOT-1) di equipArray */
-int equipArray_getEquipByIndex(equipArray_t equipArray, int index);
+void equipArray_free(equipArray eqArray);
 
-/* Si possono aggiungere altre funzioni se ritenute necessarie */
+/// @brief Numero di oggetti equipaggiati
+/// @param eqArray
+/// @return
+int equipArray_inUse(equipArray eqArray);
+
+/// @brief Stampa equipaggiamento su file
+/// @param fp
+/// @param eqArray
+/// @param inventario
+void equipArray_print(FILE *fp, equipArray eqArray, invArray inventario);
+
+/// @brief Indice nell'inventario di un oggetto
+/// @param eqArray
+/// @param index indice dell'oggetto nell'equipaggiamento
+/// @return indice dell'oggetto nell'inventario
+int equipArray_getEquipByIndex(equipArray eqArray, int index);
+
+/// @brief Rimuovi oggetto dall'equipaggiamento se è equipaggiato, altrimenti equipaggialo
+/// @param eqArr
+/// @param inventario
+/// @param intId indice nell'inventario dell'oggetto da aggiungere/rimuovere
+/// @return -1 per oggetto rimosso, +1 per oggetto equipaggiato, 0 per limite equipaggiamento raggiunto
+int equipArray_update(equipArray eq, invArray inventario, int invId);
 
 #endif
