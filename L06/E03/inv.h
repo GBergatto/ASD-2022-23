@@ -1,12 +1,12 @@
 #ifndef INV_H_DEFINED
 #define INV_H_DEFINED
 
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #define LEN 100
-#define MIN_STAT 1
 
 /// @brief Quasi ADT stats per oggetti e personaggi
 typedef struct stat_s {
@@ -29,8 +29,8 @@ int stat_read(FILE *fp, stat *statp);
 /// @brief Stampa statistiche
 /// @param fp
 /// @param statp
-/// @param soglia
-void stat_print(FILE *fp, stat *statp);
+/// @param soglia valore minimo da visualizzare
+void stat_print(FILE *fp, stat *statp, int soglia);
 
 /// @brief Somma due stat e salva il risultato nel puntatore alla prima
 /// @param a puntatore della stat che viene aggiornata

@@ -18,7 +18,7 @@ void pg_clean(pg *pgp) {
 
 void pg_print(FILE *fp, pg *pgp, invArray invArray) {
     fprintf(fp, "%s %s %s ", pgp->cod, pgp->nome, pgp->classe);
-    stat_print(fp, &(pgp->stats));
+    stat_print(fp, &(pgp->stats), MIN_STAT);
 
     if (equipArray_inUse(pgp->equip) > 0) {
         // stampa equipaggiamento e statistiche risultanti

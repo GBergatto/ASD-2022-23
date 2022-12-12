@@ -8,6 +8,8 @@
 #include "equipArray.h"
 #include "inv.h"
 
+#define MIN_STAT 1
+
 /// @brief Quasi ADT personaggio con riferimento a equipArray di proprietà
 typedef struct pg_s {
     char cod[LEN];
@@ -39,9 +41,9 @@ void pg_print(FILE *fp, pg *pgp, invArray invArray);
 int pg_addObject(pg *pgp, invArray invArray, int index);
 
 /// @brief Rimuovi oggetto dall'equipaggiamento
-/// @param pgp 
-/// @param inventario 
-/// @param index // indice 
+/// @param pgp
+/// @param inventario
+/// @param index // indice
 void pg_removeObject(pg *pgp, int index);
 
 /* Si possono aggiungere altre funzioni se ritenute necessarie */
