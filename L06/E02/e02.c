@@ -116,7 +116,7 @@ int fz(int ****mz, int ****mr, int ****mt, int ****ms, int *val) {
     if (mz[val[zaffiro]][val[rubino]][val[topazio]][val[smeraldo]] != -1)
         return mz[val[zaffiro]][val[rubino]][val[topazio]][val[smeraldo]];
 
-    val[zaffiro]--;  // aggiungo uno zaffiro alla collana (ragione del 1+)
+    val[zaffiro]--;  // aggiungo uno zaffiro alla collana (ragione del +1 alla lunghezza max)
     // provo ad aggiungere altre pietre a seguire sapendo che uno zaffiro
     // può essere seguito da zaffiro o rubino
     len1 = fz(mz, mr, mt, ms, val);

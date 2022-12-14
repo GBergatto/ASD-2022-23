@@ -219,9 +219,9 @@ int main(int argc, char const *argv[]) {
                 scanf("%s", start);
                 printf("Inserisci data di fine: ");
                 scanf("%s", end);
+                printf("Estratto i seguenti elementi dalla lista:\n");
                 while (1) {  // finche trovo un nodo con data nel range lo estraggo e riprovo
                     item = estraiDaDate(&head, start, end);
-                    printf("Estratto i elementi dalla lista:\n");
                     if (strcmp(item.codice, "00000") != 0) {
                         printf("%s %s %s %s %s %s %d\n", item.codice, item.nome, item.cognome, item.data, item.via, item.citta, item.cap);
                     } else
