@@ -10,6 +10,19 @@
         "string.h": "c",
         "inv.h": "c",
         "invarray.h": "c",
-        "variant": "c"
+        "variant": "c",
+        "*.tcc": "c",
+        "deque": "c",
+        "list": "c",
+        "string": "c",
+        "vector": "c",
+        "string_view": "c",
+        "functional": "c",
+        "initializer_list": "c",
+        "numeric": "c",
+        "streambuf": "c",
+        "tuple": "c",
+        "valarray": "c",
+        "algorithm": "c"
     }
 }
