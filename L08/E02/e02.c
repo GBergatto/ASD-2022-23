@@ -5,8 +5,8 @@
 #include "symbolTable.h"
 
 int main(int argc, char const *argv[]) {
+    // nome del file da passare come argomento da CLI
     FILE *f = fopen(argv[1], "r");
-    printf("%s\n", argv[1]);
 
     if (f == NULL) {
         printf("Errore nella lettura del file\n");
