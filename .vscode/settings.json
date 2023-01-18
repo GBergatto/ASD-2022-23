@@ -23,6 +23,20 @@
         "streambuf": "c",
         "tuple": "c",
         "valarray": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "symboltable.h": "c",
+        "numbers": "c",
+        "limits": "c",
+        "ctime": "c",
+        "unordered_map": "c",
+        "unordered_set": "c",
+        "iostream": "c",
+        "ratio": "c",
+        "compare": "c",
+        "optional": "c",
+        "istream": "c",
+        "system_error": "c",
+        "type_traits": "c",
+        "utility": "c"
     }
 }
