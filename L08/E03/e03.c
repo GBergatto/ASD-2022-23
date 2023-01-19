@@ -31,6 +31,16 @@ int loadFile(FILE *f, TC tc) {
             TCaddTitle(tc, t);
         }
 
+        // ### ERRORE ###
+        // La lettura e il calcolo delle quotazioni si basa (erroneamente) sull'assuzione che le
+        // transazioni con la stessa data siano adiacenti e appartenenti allo stesso file.
+
+        // Per poter modificare la quotazione giornaliera di un titolo aggiungendo transazioni in un
+        // secondo momento, occorre mantenere una lista di tutte le transazioni avvenute in quella data.
+        // Questo potrebbe essere fatto includendo una linked list all'interno dell'ADT Quotation, in
+        // cui ogni nodo contiene l'ora della transazione, il valore e il numero. La quotazione del titolo
+        // verrebbe calcolata su richiesta scorrendo le transazioni presenti in tale lista in quel momento.
+
         for (int j = 0; j < nQ; j++) {
             fscanf(f, "%d/%d/%d %d:%d %f %d", &(date.year), &(date.month),
                    &(date.day), &(time.hours), &(time.minutes), &val, &n);
