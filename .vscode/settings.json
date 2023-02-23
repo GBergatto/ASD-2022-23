@@ -39,6 +39,7 @@
         "type_traits": "c",
         "utility": "c",
         "graph.h": "c",
-        "mutex": "c"
+        "mutex": "c",
+        "array.h": "c"
     }
 }
